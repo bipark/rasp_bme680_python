@@ -7,6 +7,39 @@
 - 드라이버: `adafruit-circuitpython-bme680` (주소 0x77 → 실패 시 0x76)
 - 가스 히터: 비활성화(온도 영향 최소화)
 
+## 파일 구조 및 주요 내용
+
+```
+rasp_bme680_python_web/
+├── main.py             # 실행 entry point, 대시보드(GUI) 호출
+├── ui.py               # Tkinter 대시보드 화면, 센서 및 MQTT 클래스 연동, 갱신 루프
+├── sensor.py           # BME680 센서 초기화, 데이터 읽기, 카드 UI용 RoundedFrame 구현
+├── mqtt_reporter.py    # .env 환경 로드, MQTT 접속/전송 및 JSON 생성
+├── requirements.txt    # 필요한 파이썬 의존성 목록
+├── README.md           # 설치 및 전체 구성 설명, 파일 구조/리팩토링 내역
+├── temp_monitor.jpg    # 대시보드 UI 예시 이미지
+└── .env                # MQTT 등 환경설정(민감정보/직접생성)
+```
+
+### 각 파일 설명
+
+- **main.py**  
+  프로그램 실행 진입점. Tk 대시보드 앱을 구동하며, 실제 실행 명령 및 최소 코드만 포함.
+- **ui.py**  
+  `Dashboard` 클래스를 구현. Tkinter 풀스크린 UI 및 대시보드 카드, 측정값 갱신 루프, 센서·MQTT 연동, 단축키 등. (센서/MQTT 기능은 각 모듈 활용)
+- **sensor.py**  
+  `Sensor` 클래스(BME680 초기화/데이터 읽기/가스저항/고도/이슬점 계산 등) 및 카드 UI용 `RoundedFrame` 구현 포함.
+- **mqtt_reporter.py**  
+  `MQTTReporter` 클래스. 환경변수(.env) 처리, 브로커 연결/인증, 페이로드(json) 생성 및 발행, 전송주기 관리 등 포함.
+- **requirements.txt**  
+  pip로 설치할 필수 python 패키지 목록.
+- **README.md**  
+  전체 설치/연결 방법, 실행 예시, 파일 구조·기능 설명(현재 문서).
+- **temp_monitor.jpg**  
+  실제 UI 예시 이미지(설치 또는 개발 참고용).
+- **.env**  
+  MQTT 접속정보, 센서명·지역 등 환경 기반 설정 (별도 직접 생성 필요/gitinore 추천).
+
 ---
 
 ### 1) 준비물
@@ -77,3 +110,4 @@ sudo systemctl start bme680-dashboard.service
 
 ### 라이선스
 본 예제는 교육/개인용으로 자유롭게 수정/사용할 수 있습니다.
+

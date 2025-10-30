@@ -1,3 +1,5 @@
 adafruit-circuitpython-bme680>=3.5.0
 adafruit-blinka>=8.45.0
+python-dotenv>=1.0.1
+paho-mqtt>=2.1.0
  
