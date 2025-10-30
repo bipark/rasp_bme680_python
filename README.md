@@ -2,6 +2,9 @@
 
 라즈베리파이에서 Adafruit CircuitPython BME680 드라이버를 사용해 온도/습도/기압을 풀스크린으로 표시하는 Tkinter 대시보드입니다. 5초마다 자동 갱신합니다.
 
+![UI](temp_monitor.jpg)
+
+
 ### 구성
 - UI: Tkinter 풀스크린, 다크 테마, 3개 카드 한 줄 고정
 - 드라이버: `adafruit-circuitpython-bme680` (주소 0x77 → 실패 시 0x76)

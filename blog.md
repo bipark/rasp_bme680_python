@@ -2,6 +2,8 @@
 
 이 문서에서는 BME680 센서를 사용하여 라즈베리파이 기반 환경 데이터 대시보드(Tkinter GUI)를 구현하는 과정을 기술적으로 정리한다.
 
+![UI](temp_monitor.jpg)
+
 ## 1. 시스템 개요
 
 - **센서**: BME680 (온도, 습도, 기압, 가스저항값 측정 지원)
@@ -48,10 +50,6 @@ python /home/pi/works/rasp_bme680_python_web/main_tk.py
 ```
 - 기본 전체화면
 - Esc 키로 종료
-
-### 예시 UI
-
-![UI 예시](/home/pi/works/rasp_bme680_python_web/temp_monitor.jpg)
 
 ## 6. MQTT 연동
 
